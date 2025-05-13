@@ -1,0 +1,74 @@
+.title {
+  color: #282828;
+  font-size: 1.7rem;
+  margin-top: 30px;
+  text-align: center;
+}
+.LoginForm {
+    position: relative;
+  width: 400px;
+  height: 560px;
+  margin: auto;
+  margin-top: 60px;
+  border-radius: 40px;
+  border-width: 1px;
+  background-color: #fff;
+  border: 1px solid #e4e4e4;
+  padding: 0 35px;
+}
+.formTitle {
+  width: 120px;
+  margin: auto;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.formTitle > img {
+  width: 80px;
+  height: 84px;
+  margin-bottom: 10px;
+}
+.formTitle > p {
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin: 0;
+}
+.inputs {
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  height: 50px;
+  width: 100%;
+  border: none;
+  padding: 3px 10px;
+  box-sizing: border-box;
+  font-size: 1.3rem;
+  margin-top: 15px;
+}
+.inputs:focus{
+    outline: 2px solid #7e7e7e;
+}
+.inputError {
+  border: 1px solid red;
+  outline: none;
+}
+.submit {
+  background-color: #55A3F0;
+  color: #fff;
+  border-radius: 10px;
+  height: 50px;
+  width: 100%;
+  border: none;
+  padding: 3px 10px;
+  box-sizing: border-box;
+  font-size: 1.3rem;
+  margin-top: 35px;
+  cursor: pointer;
+}
+.error{
+    color: #ff0000;
+    margin: 0;
+    font-size: 0.8rem;
+}

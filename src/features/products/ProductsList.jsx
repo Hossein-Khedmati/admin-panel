@@ -2,13 +2,16 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "./productService";
 import AddProductModal from "./AddProductModal";
+import EditProductModal from "./EditProductModal";  // یادت نره ایمپورت کنی
+import DeleteProductModal from "./DeleteProductModal";
 
 const ProductList = () => {
   const [page, setPage] = useState(1);
   const limit = 10;
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [deleteProduct, setDeleteProduct] = useState(null)
 
-  // دریافت دیتا از React Query بر اساس page
   const { data, isLoading, isError, isFetching } = useQuery({
     queryKey: ["products", page],
     queryFn: () => getProducts({ page, limit }),
@@ -22,9 +25,10 @@ const ProductList = () => {
 
   return (
     <>
-    <button onClick={() => setIsModalOpen(true)}>➕ افزودن محصول</button>
+      <button onClick={() => setIsModalOpen(true)}>➕ افزودن محصول</button>
 
       {isModalOpen && <AddProductModal onClose={() => setIsModalOpen(false)} />}
+
       <table>
         <thead>
           <tr>
@@ -48,8 +52,8 @@ const ProductList = () => {
                 <td>{product.price} تومان</td>
                 <td>{product.id}</td>
                 <td>
-                  <button>📝</button>
-                  <button>🗑</button>
+                  <button onClick={() => setSelectedProduct(product)}>📝</button>
+                  <button onClick={() => setDeleteProduct(product)}>🗑</button>
                 </td>
               </tr>
             ))
@@ -73,6 +77,19 @@ const ProductList = () => {
           </button>
         ))}
       </div>
+
+      {selectedProduct && (
+        <EditProductModal
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+        />
+      )}
+      {deleteProduct && (
+        <DeleteProductModal
+          product={deleteProduct}
+          onClose={() => setDeleteProduct(null)}
+        />
+      )}
     </>
   );
 };

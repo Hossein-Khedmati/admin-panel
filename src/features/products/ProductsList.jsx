@@ -11,6 +11,8 @@ const ProductList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [deleteProduct, setDeleteProduct] = useState(null)
+  const [searchQuery, setSearchQuery] = useState("");
+
 
   const { data, isLoading, isError, isFetching } = useQuery({
     queryKey: ["products", page],
@@ -25,6 +27,15 @@ const ProductList = () => {
 
   return (
     <>
+        <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "1rem" }}>
+  <input
+    type="text"
+    placeholder="جستجوی محصول..."
+    value={searchQuery}
+    onChange={(e) => setSearchQuery(e.target.value)}
+    style={{ padding: "0.5rem", width: "200px" }}
+  />
+  <div/>
       <button onClick={() => setIsModalOpen(true)}>➕ افزودن محصول</button>
 
       {isModalOpen && <AddProductModal onClose={() => setIsModalOpen(false)} />}

@@ -2,8 +2,9 @@ import ProductList from "../features/products/ProductsList";
 
 const DashboardPage = () => {
   return (
-    <div>
-      <h1>مدیریت کالاها</h1>
+    <div style={{
+          padding:"30px 70px"
+        }}>
       <ProductList />
     </div>
   );

@@ -4,7 +4,7 @@ import logo from "../assets/Union.png";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { registerSchema } from "../features/auth/validationOnSchema";
+import { registerSchema } from "../features/validationOnSchema";
 import { useRegister } from "../features/auth/useRegister";
 
 import { toast } from "react-toastify";

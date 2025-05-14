@@ -7,6 +7,9 @@ import DeleteProductModal from "./DeleteProductModal";
 import styles from "./ProductList.module.css";
 
 import search from "../../assets/search-normal.png";
+import setting from "../../assets/setting-3.png"
+import trash from "../../assets/trash.png"
+import edit from "../../assets/edit.png"
 
 const ProductList = () => {
   const [page, setPage] = useState(1);
@@ -64,8 +67,11 @@ const ProductList = () => {
 
       {isModalOpen && <AddProductModal onClose={() => setIsModalOpen(false)} />}
       <div className={styles.subject}>
+        <div>
+        <img src={setting} alt="setting.png" />
         <h1>مدیریت کالاها</h1>
-        <button onClick={() => setIsModalOpen(true)}>➕ افزودن محصول</button>
+        </div>
+        <button onClick={() => setIsModalOpen(true)}>افزودن محصول</button>
       </div>
 
       <table>
@@ -92,9 +98,11 @@ const ProductList = () => {
                 <td>{product.id}</td>
                 <td className={styles.buttonOptions}>
                   <button onClick={() => setSelectedProduct(product)}>
-                    📝
+                    <img src={edit} alt="" />
                   </button>
-                  <button onClick={() => setDeleteProduct(product)}>🗑</button>
+                  <button onClick={() => setDeleteProduct(product)}>
+                    <img src={trash} alt="" />
+                  </button>
                 </td>
               </tr>
             ))
@@ -104,15 +112,12 @@ const ProductList = () => {
 
       {isFetching && <p>در حال دریافت اطلاعات جدید...</p>}
 
-      <div style={{ marginTop: "10px" }}>
+      <div className={styles.pagination}>
         {Array.from({ length: totalPages }).map((_, idx) => (
           <button
             key={idx + 1}
             onClick={() => setPage(idx + 1)}
-            style={{
-              fontWeight: page === idx + 1 ? "bold" : "normal",
-              margin: "0 5px",
-            }}
+            className={page === idx + 1 ? styles.buttonActive : ""}
           >
             {idx + 1}
           </button>

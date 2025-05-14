@@ -4,4 +4,5 @@
   font-weight: 400;
   background-color: #f7f8f8;
   direction: rtl;
+  box-sizing: border-box;
 }

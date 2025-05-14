@@ -1,6 +1,9 @@
 import { useDeleteProduct } from "./useDeleteProduct";
 import { toast } from "react-toastify";
 
+import styles from "./DeleteProductModal.module.css";
+import deleteOption from "../../assets/close.png"
+
 const DeleteProductModal = ({ product, onClose }) => {
   const { mutate, isLoading } = useDeleteProduct();
 
@@ -17,12 +20,25 @@ const DeleteProductModal = ({ product, onClose }) => {
   };
 
   return (
-    <div className="modal">
-      <h2>آیا از حذف "{product.name}" مطمئن هستید؟</h2>
-      <button onClick={handleDelete} disabled={isLoading}>
-        {isLoading ? "در حال حذف..." : "بله، حذف کن"}
-      </button>
-      <button onClick={onClose}>لغو</button>
+    <div className={styles.backdrop}>
+      <div className={styles.modal}>
+        <img src={deleteOption} alt="" />
+        <h2 className={styles.title}>
+          آیا از حذف "{product.name}" مطمئن هستید؟
+        </h2>
+        <div className={styles.actions}>
+          <button
+            className={styles.deleteButton}
+            onClick={handleDelete}
+            disabled={isLoading}
+          >
+            {isLoading ? "در حال حذف..." : " حذف "}
+          </button>
+          <button className={styles.cancelButton} onClick={onClose}>
+            لغو
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

@@ -22,30 +22,107 @@
 
 .subject {
   width: 100%;
+  height: 50px;
+  margin: 30px 0 20px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.subject > h1 {
+.subject > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.subject h1 {
   display: inline-block;
+  font-size: 1.8rem;
+  text-align: center;
   margin: 0;
+  margin-right: 10px;
+}
+.subject > button {
+  width: 132px;
+  height: 45px;
+  background-color: #55a3f0;
+  border-radius: 10px;
+  padding: 10px;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 300ms;
+}
+.subject > button:hover {
+  background-color: #2c8ef0;
 }
 table {
   width: 100%;
-  border-collapse: separate;
   border-spacing: 0;
-  border: 1px solid #E4E4E4;
+  border: 1px solid #e4e4e4;
   border-radius: 15px;
   overflow: hidden;
 }
-thead{
-    text-align: right;
-    height: 70px;
-    background-color: #F2F2F2;
+thead {
+  text-align: right;
+  height: 70px;
+  background-color: #f2f2f2;
 }
-.buttonOptions{
-    text-align: center;
+thead > tr > th:nth-child(1) {
+  padding-right: 20px;
 }
-.productsRow>td:nth-child(2){
-    width: 20%;
+.buttonOptions {
+  text-align: center;
+}
+.productsRow {
+  height: 55px;
+}
+.productsRow > td {
+  border-bottom: 1px solid #e4e4e4;
+}
+.productsRow > td:nth-child(1) {
+  padding-right: 20px;
+  width: 25%;
+}
+.productsRow > td:nth-child(2) {
+  width: 15%;
+}
+.productsRow > td:nth-child(3) {
+  width: 15%;
+}
+.productsRow > td:nth-child(4) {
+  width: 35%;
+}
+.productsRow > td:nth-child(5) {
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+.buttonOptions>button{
+  border: none;
+  background-color: #f7f8f8;
+  cursor: pointer;
+}
+.buttonOptions>button:hover{
+  opacity: 0.8;
+}
+.pagination{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+.pagination>button{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  color: #8D8D8D80;
+  background-color: #F7F8F8;
+  border: 1px solid #8D8D8D80;
+  margin: 0 5px;
+  font-size: 1.2rem;
+}
+.buttonActive{
+  background-color: #55A3F0 !important;
+  color: #F7F8F8 !important;
+  border: none !important;
 }

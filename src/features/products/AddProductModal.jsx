@@ -4,6 +4,8 @@ import { useAddProduct } from "./useAddProduct";
 import { toast } from "react-toastify";
 import { productSchema } from "../validationOnSchema";
 
+import styles from "./AddProductModal.module.css";
+
 const AddProductModal = ({ onClose }) => {
   const {
     register,
@@ -17,7 +19,15 @@ const AddProductModal = ({ onClose }) => {
   const { mutate, isLoading } = useAddProduct();
 
   const onSubmit = (data) => {
-    mutate(data, {
+    const payload = {
+      name: data.name,
+      price: data.price,
+      quantity: data.stock,
+    };
+
+    console.log(payload);
+
+    mutate(payload, {
       onSuccess: () => {
         toast.success("محصول با موفقیت افزوده شد ✅");
         reset();
@@ -30,23 +40,55 @@ const AddProductModal = ({ onClose }) => {
   };
 
   return (
-    <div className="modal">
-      <h2>افزودن محصول جدید</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input {...register("name")} placeholder="نام کالا" />
-        <p style={{ color: "red" }}>{errors.name?.message}</p>
+    <div className={styles.backdrop}>
+      <div className={styles.modal}>
+        <h2 className={styles.title}>افزودن محصول جدید</h2>
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+          <p className={styles.inputsTitle}>نام کالا</p>
 
-        <input {...register("stock")} type="number" placeholder="موجودی" />
-        <p style={{ color: "red" }}>{errors.stock?.message}</p>
+          <input
+            {...register("name")}
+            placeholder="نام کالا"
+            className={styles.input}
+          />
+          <p className={styles.error}>{errors.name?.message}</p>
 
-        <input {...register("price")} type="number" placeholder="قیمت" />
-        <p style={{ color: "red" }}>{errors.price?.message}</p>
+          <p className={styles.inputsTitle}>موجودی</p>
+          <input
+            {...register("stock")}
+            type="number"
+            placeholder="موجودی"
+            className={styles.input}
+          />
+          <p className={styles.error}>{errors.stock?.message}</p>
 
-        <button type="submit" disabled={isLoading}>
-          {isLoading ? "در حال افزودن..." : "افزودن محصول"}
-        </button>
-      </form>
-      <button onClick={onClose}>بستن</button>
+          <p className={styles.inputsTitle}>قیمت</p>
+          <input
+            {...register("price")}
+            type="number"
+            placeholder="قیمت"
+            className={styles.input}
+          />
+          <p className={styles.error}>{errors.price?.message}</p>
+
+          <div className={styles.actions}>
+            <button
+              type="submit"
+              className={styles.submitButton}
+              disabled={isLoading}
+            >
+              {isLoading ? "در حال افزودن..." : "افزودن محصول"}
+            </button>
+            <button
+              type="button"
+              onClick={onClose}
+              className={styles.cancelButton}
+            >
+              انصراف
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

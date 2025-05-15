@@ -7,7 +7,7 @@
 .LoginForm {
     position: relative;
   width: 400px;
-  height: 560px;
+  height: 490px;
   margin: auto;
   margin-top: 60px;
   border-radius: 40px;
@@ -71,4 +71,12 @@
     color: #ff0000;
     margin: 0;
     font-size: 0.8rem;
+}
+.toRegister{
+  color: #3A8BED;
+  text-decoration: none;
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  font-size: 1.2rem;
 }

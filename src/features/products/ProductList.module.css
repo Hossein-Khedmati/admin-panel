@@ -15,11 +15,39 @@
   width: 100%;
   font-size: 1.3rem;
   margin: 0 20px;
+  margin-left: 10px;
+  border-left: 2px solid #e4e4e4;
 }
 .navbar > input:focus {
   outline: none;
 }
-
+.userInfo {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+.userInfo > img {
+  width: 30px;
+  height: 35px;
+  margin: 0 10px;
+}
+.exit {
+}
+.exit > button {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.exit > button > img {
+  width: 35px;
+  height: 35px;
+}
 .subject {
   width: 100%;
   height: 50px;
@@ -96,33 +124,33 @@ thead > tr > th:nth-child(1) {
   padding: 0 10px;
   box-sizing: border-box;
 }
-.buttonOptions>button{
+.buttonOptions > button {
   border: none;
   background-color: #f7f8f8;
   cursor: pointer;
 }
-.buttonOptions>button:hover{
+.buttonOptions > button:hover {
   opacity: 0.8;
 }
-.pagination{
+.pagination {
   margin-top: 30px;
   display: flex;
   justify-content: center;
 }
-.pagination>button{
+.pagination > button {
   width: 35px;
   height: 35px;
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  color: #8D8D8D80;
-  background-color: #F7F8F8;
-  border: 1px solid #8D8D8D80;
+  color: #8d8d8d80;
+  background-color: #f7f8f8;
+  border: 1px solid #8d8d8d80;
   margin: 0 5px;
   font-size: 1.2rem;
 }
-.buttonActive{
-  background-color: #55A3F0 !important;
-  color: #F7F8F8 !important;
+.buttonActive {
+  background-color: #55a3f0 !important;
+  color: #f7f8f8 !important;
   border: none !important;
 }

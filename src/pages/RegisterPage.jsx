@@ -8,7 +8,7 @@ import { registerSchema } from "../features/validationOnSchema";
 import { useRegister } from "../features/auth/useRegister";
 
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function RegisterPage() {
   const {
@@ -79,6 +79,7 @@ function RegisterPage() {
         <button className={styles.submit} disabled={isLoading}>
           {isLoading ? "در حال ارسال..." : "ثبت نام"}
         </button>
+        <Link className={styles.toLogin} to="/login">حساب کاربری دارید؟</Link>
       </form>
     </>
   );

@@ -9,7 +9,7 @@ import { useLogin } from "../features/auth/useLogin";
 import { jwtDecode } from "jwt-decode";
 
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const {
@@ -77,6 +77,7 @@ function LoginPage() {
         <button className={styles.submit} disabled={isLoading}>
           {isLoading ? "در حال ورود..." : "ورود"}
         </button>
+        <Link className={styles.toRegister} to="/">ایجاد حساب کاربری!</Link>
       </form>
     </>
   );

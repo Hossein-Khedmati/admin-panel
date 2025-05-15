@@ -5,7 +5,7 @@
   text-align: center;
 }
 .RegisterForm {
-    position: relative;
+  position: relative;
   width: 400px;
   height: 560px;
   margin: auto;
@@ -64,11 +64,20 @@
   padding: 3px 10px;
   box-sizing: border-box;
   font-size: 1.3rem;
-  margin-top: 35px;
   cursor: pointer;
+  top: 30px;
+  position: relative;
 }
 .error{
     color: #ff0000;
     margin: 0;
     font-size: 0.8rem;
+}
+.toLogin{
+  color: #3A8BED;
+  text-decoration: none;
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  font-size: 1.2rem;
 }

@@ -10,6 +10,8 @@ import search from "../../assets/search-normal.png";
 import setting from "../../assets/setting-3.png"
 import trash from "../../assets/trash.png"
 import edit from "../../assets/edit.png"
+import user from "../../assets/user.png"
+import power from "../../assets/power.png"
 
 const ProductList = () => {
   const [page, setPage] = useState(1);
@@ -50,17 +52,16 @@ const ProductList = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <div>👤 {username}</div>
-        <div>
+        <div className={styles.userInfo}><img src={user} alt="user.png" /> {username}</div>
+        <div className={styles.exit}>
           <button
             onClick={() => {
               localStorage.removeItem("token");
               localStorage.removeItem("username");
               window.location.href = "/login";
             }}
-            style={{ padding: "0.5rem 1rem", cursor: "pointer" }}
           >
-            خروج
+            <img src={power} alt="power.png" />
           </button>
         </div>
       </div>
